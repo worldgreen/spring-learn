@@ -12,8 +12,8 @@ public class StudentTest {
     @Test
     public void tesGetName() {
         ApplicationContext bf = new ClassPathXmlApplicationContext("applicationContext.xml");
-        TestService studentService = (TestService) bf.getBean("testService");
-        studentService.test();
+        TestService testService = (TestService) bf.getBean("testService");
+        testService.test();
     }
 
     public static void main(String[] args) {
