@@ -1,6 +1,6 @@
 package com.study;
 
-import com.study.service.StudentService;
+import com.study.service.TestService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -12,8 +12,8 @@ public class StudentTest {
     @Test
     public void tesGetName() {
         ApplicationContext bf = new ClassPathXmlApplicationContext("applicationContext.xml");
-        StudentService studentService = (StudentService) bf.getBean("studentService");
-        studentService.getName();
+        TestService studentService = (TestService) bf.getBean("testService");
+        studentService.test();
     }
 
     public static void main(String[] args) {

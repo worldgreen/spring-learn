@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-
-
-
-       http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd">
-
-
+    <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"></aop:aspectj-autoproxy>
 <!--
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
@@ -33,8 +29,9 @@
         <property name="basePackage" value="com.study.dao"></property>
     </bean>-->
 
-    <bean id="studentService" class="com.study.service.StudentService"></bean>
+    <bean id="testService" class="com.study.service.TestService"></bean>
 
-    <tx:annotation-driven></tx:annotation-driven>
-
+    <bean class="com.study.aop.Aop"></bean>
+  <!--  <tx:annotation-driven></tx:annotation-driven>
+-->
 </beans>
