@@ -10,10 +10,9 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-<!--
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://10.126.153.140:3306/test_wht"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/test_wht"></property>
         <property name="username" value="root"></property>
         <property name="password" value="Test1234%"></property>
         <property name="initialSize" value="1"></property>
@@ -29,12 +28,10 @@
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.study.dao"></property>
-    </bean>-->
+    </bean>
 
-   <!-- <bean id="studentService" class="com.study.service.StudentService"></bean>
+    <bean id="studentService" class="com.study.service.StudentService"></bean>
 
-    <tx:annotation-driven></tx:annotation-driven>
--->
     <bean class="com.study.aop.Aop"></bean>
     <bean id="testService" class="com.study.service.TestService"></bean>
 
