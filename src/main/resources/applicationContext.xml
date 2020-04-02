@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://10.126.153.140:3306/test_wht?useSSL=false"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/test"></property>
         <property name="username" value="root"></property>
-        <property name="password" value="Test1234%"></property>
+        <property name="password" value="123456"></property>
         <property name="initialSize" value="1"></property>
         <property name="maxActive" value="300"></property>
         <property name="maxIdle" value="2"></property>
         <property name="minIdle" value="1"></property>
     </bean>
 
-<!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+<!--
+        <property name="nestedTransactionAllowed" value="true"></property>
+-->
+    </bean>
+
+    <bean id="t1Service" class="com.study.service.T1ServiceImpl">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+<!--
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="configLocation" value="mybatis-config.xml"></property>
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
-    <bean id="t1Mapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-        <property name="mapperInterface" value="com.study.dao.T1Mapper"></property>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.study.dao"></property>
     </bean>-->
 
-   <!-- <bean id="studentService" class="com.study.service.StudentService"></bean>
+ <!--   <bean id="studentService" class="com.study.service.StudentService"></bean>
 
-    <tx:annotation-driven></tx:annotation-driven>
--->
-  <!--  <bean class="com.study.aop.Aop"></bean>
+    <bean class="com.study.aop.Aop"></bean>
     <bean id="testService" class="com.study.service.TestService"></bean>
 
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
