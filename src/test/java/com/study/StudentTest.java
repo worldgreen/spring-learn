@@ -1,6 +1,7 @@
 package com.study;
 
-import com.study.service.TestService;
+import com.study.dao.T1Mapper;
+import com.study.model.T1;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -12,8 +13,9 @@ public class StudentTest {
     @Test
     public void tesGetName() {
         ApplicationContext bf = new ClassPathXmlApplicationContext("applicationContext.xml");
-        TestService testService = (TestService) bf.getBean("testService");
-        testService.test();
+        T1Mapper t1Mapper = (T1Mapper) bf.getBean("t1Mapper");
+        T1 t1 = t1Mapper.get(1);
+        System.out.println();
     }
 
     public static void main(String[] args) {
