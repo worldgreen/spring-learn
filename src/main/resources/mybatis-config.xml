@@ -7,7 +7,4 @@
     <typeAliases>
         <typeAlias type="com.study.model.T1" alias="t1"></typeAlias>
     </typeAliases>
-    <mappers>
-        <mapper resource="T1Mapper.xml"></mapper>
-    </mappers>
 </configuration>
