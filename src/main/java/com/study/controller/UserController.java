@@ -23,6 +23,7 @@ public class UserController extends AbstractController {
         list.add(u1);
         list.add(u2);
 
+
         return new ModelAndView("userlist", "users", list);
     }
 }
