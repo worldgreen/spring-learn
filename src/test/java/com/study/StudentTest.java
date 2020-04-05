@@ -27,10 +27,6 @@ public class StudentTest {
         t1Service.test();
     }
 
-    public static void main(String[] args) {
-        Long t = 1l;
-        System.out.println(t.equals(1l));
-    }
 }
 
     class TreeNode {
