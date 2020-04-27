@@ -7,9 +7,13 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+
 public class StudentTest {
 
     Boolean t;
+    int i;
 
     @Test
     public void tesGetName() {
@@ -27,10 +31,19 @@ public class StudentTest {
         t1Service.test();
     }
 
+    public static void main(String[] args) {
+        ConcurrentHashMap<Integer, Integer> map = new ConcurrentHashMap<>();
+        map.put(1,1);
+        HashMap<Integer, Integer> map2 = new HashMap<>();
+        map2.put(1,2);
+
+        int i =  Integer.numberOfLeadingZeros(0x7fffffff);
+        System.out.println(i);
+    }
 }
 
-    class TreeNode {
-    TreeNode left;
-    TreeNode right;
+class ListNode {
     int val;
+    ListNode next;
+    ListNode(int x) { val = x; }
 }
